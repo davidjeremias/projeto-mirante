@@ -1,0 +1,42 @@
+<div class="jumbotron container"> 
+    <div class="titulo">
+        <h3>Cadastro de Contato</h3>
+    </div>
+<hr>
+<br>
+  <form action="POST" [formGroup]="formulario" (ngSumit)="salvar()">
+    <div class="container">
+      <div class="form-group">
+          <span class="ui-float-label">
+              <input  id="float-input" type="text" size="30" formControlName="nome" [(ngModel)]="pessoa.nome" pInputText> 
+              <label for="float-input">Nome</label>
+          </span>
+      </div>
+      <div class="form-group">
+          <span class="ui-float-label">
+              <input id="float-input" type="text" size="30" formControlName="email" [(ngModel)]="pessoa.email" pInputText> 
+              <label for="float-input">Email</label>
+          </span>
+      </div>
+      <button type="submit" [disabled]="formulario.invalid" (click)="salvar()" class="btn btn-primary">SALVAR</button>
+      <button type="reset" class="btn btn-warning" (click)="clean()">LIMPAR</button>
+      
+    </div>
+
+<hr>
+
+<p-table [columns]="cols" [value]="contatos" [paginator]="true" [rows]="10">
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of columns">{{col.header}}</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr>
+            <td *ngFor="let col of columns">{{rowData[col.field]}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+
+  </form>
+</div>
