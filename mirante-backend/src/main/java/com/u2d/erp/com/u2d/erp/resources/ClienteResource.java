@@ -33,4 +33,10 @@ public class ClienteResource {
     public void remover(@PathVariable Long id){
         clienteService.remover(id);
     }
+    
+    @PutMapping("/{id}")
+    public ResponseEntity<Cliente> atualizar(@PathVariable Long id, @RequestBody Cliente cliente){
+        Cliente clienteSalvo = clienteService.atualizar(id, cliente);
+        return ResponseEntity.ok(clienteSalvo);
+    }
 }
