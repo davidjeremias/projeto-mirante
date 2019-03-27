@@ -17,13 +17,20 @@ public class ClienteResource {
     private ClienteService clienteService;
 
     @GetMapping
-    public List<Cliente> listar(){
-        return clienteService.listar();
+    public ResponseEntity<?> listar(){
+    	List<Cliente> clientes = clienteService.listar();
+        return !clientes.isEmpty() ? ResponseEntity.ok(clientes) : ResponseEntity.noContent().build();
     }
 
     @PostMapping
     public ResponseEntity<Cliente> salvar(@RequestBody Cliente clinte){
         Cliente clienteSalvo = clienteService.salvar(clinte);
         return ResponseEntity.status(HttpStatus.CREATED).body(clienteSalvo);
+    }
+    
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void remover(@PathVariable Long id){
+        clienteService.remover(id);
     }
 }

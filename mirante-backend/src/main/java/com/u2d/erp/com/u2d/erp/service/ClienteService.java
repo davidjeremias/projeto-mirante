@@ -21,4 +21,8 @@ public class ClienteService {
         Cliente clienteSalvo = clienteRepository.save(cliente);
         return clienteSalvo;
     }
+    
+    public void remover(Long id) {
+    	clienteRepository.deleteById(id);
+    }
 }
