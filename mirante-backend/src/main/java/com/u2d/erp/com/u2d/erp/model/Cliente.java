@@ -3,7 +3,6 @@ package com.u2d.erp.com.u2d.erp.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Entity
@@ -15,13 +14,8 @@ public class Cliente {
     private Long id;
     private String cpf;
     private String nome;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "endereco_id")
     private Endereco endereco;
-    @OneToMany
-    private List<Telefone> telefones;
-    @OneToMany
-    private List<Email> emails;
-
-
 
 }
