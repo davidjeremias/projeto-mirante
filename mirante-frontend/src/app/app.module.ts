@@ -11,21 +11,19 @@ import {TableModule} from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ContatosListagemComponent } from './contatos-listagem/contatos-listagem.component';
-import { ContatosService } from './contatos-listagem/contatos.service';
-import { ContatosInsercaoComponent } from './contatos-insercao/contatos-insercao.component';
 import {MenubarModule} from 'primeng/menubar';
+import {DropdownModule} from 'primeng/dropdown';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
+import { ClienteInsercaoComponent } from './cliente-insercao/cliente-insercao.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ContatosListagemComponent,
-    ContatosInsercaoComponent,
     MenuComponent,
-    HomeComponent
+    HomeComponent,
+    ClienteInsercaoComponent
   ],
   imports: [
     BrowserModule,
@@ -37,10 +35,11 @@ import { HomeComponent } from './home/home.component';
     ButtonModule,
     TableModule,
     ToastModule,
-    MenubarModule
+    MenubarModule,
+    DropdownModule
     
   ],
-  providers: [ContatosService, MessageService],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

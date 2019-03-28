@@ -7,7 +7,7 @@ import {MessageService} from 'primeng/api';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-contatos';
+  title = 'Teste-Cliente';
 
   constructor(private messageService: MessageService) {}
 }
