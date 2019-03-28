@@ -12,7 +12,7 @@ public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private int numero;
+    private String numero;
     private String tipoTelefone;
 
 }

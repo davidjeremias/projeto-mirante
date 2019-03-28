@@ -1,0 +1,93 @@
+<div class="jumbotron container"> 
+  <div class="titulo">
+      <h3>Cadastro de Cliente</h3>
+  </div>
+
+<hr>
+<br>
+<form action="POST" [formGroup]="formulario" (ngSumit)="salvar()">
+  <div class="container">
+    <div class="ui-g" style="width:120%; margin-bottom: 2px">
+        <div class="form-group ui-g-3">
+            <span class="ui-float-label">
+                <input  id="float-input" type="text" size="30" formControlName="nome" [(ngModel)]="cliente.nome" pInputText> 
+                <label for="float-input">Nome</label>
+            </span>
+        </div>
+        <div class="form-group ui-g-3">
+            <span class="ui-float-label">
+                <input id="float-input" type="text" size="30" formControlName="cpf" [(ngModel)]="cliente.cpf" pInputText> 
+                <label for="float-input">CPF</label>
+            </span>
+        </div>
+    </div>
+
+    <div class="ui-g" style="width:120%; margin-bottom: 2px !important">
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input  id="float-input" type="text" size="30" formControlName="cep" [(ngModel)]="endereco.cep" pInputText> 
+                    <label for="float-input">CEP</label>
+                </span>
+            </div>
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input id="float-input" type="text" size="30" formControlName="logradouro" [(ngModel)]="endereco.logradouro" pInputText> 
+                    <label for="float-input">Logradouro</label>
+                </span>
+            </div>
+    </div>
+
+    <div class="ui-g" style="width:120%; margin-bottom: 2px !important">
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input  id="float-input" type="text" size="30" formControlName="bairro" [(ngModel)]="endereco.bairro" pInputText> 
+                    <label for="float-input">Bairro</label>
+                </span>
+            </div>
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input id="float-input" type="text" size="30" formControlName="cidade" [(ngModel)]="endereco.cidade" pInputText> 
+                    <label for="float-input">Cidade</label>
+                </span>
+            </div>
+    </div>
+
+    <div class="ui-g" style="width:120%; margin-bottom: 2px !important">
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input  id="float-input" type="text" size="30" formControlName="uf" [(ngModel)]="endereco.uf" pInputText> 
+                    <label for="float-input">UF</label>
+                </span>
+            </div>
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input id="float-input" type="text" size="30" formControlName="complemento" [(ngModel)]="endereco.complemento" pInputText> 
+                    <label for="float-input">Complemento</label>
+                </span>
+            </div>
+    </div>
+
+    <div class="ui-g" style="width:120%; margin-bottom: 2px !important">
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                    <input  id="float-input" type="text" size="30" formControlName="numero" [(ngModel)]="telefone.numero" pInputText> 
+                    <label for="float-input">Telefone</label>
+                </span>
+            </div>
+            <div class="form-group ui-g-3">
+                <span class="ui-float-label">
+                        <p-dropdown [options]="tipoTelefone" formControlName="selectedTipoTelefone" [(ngModel)]="selectedTipoTelefone"></p-dropdown>
+                    <label for="float-input">Tipo Telefone</label>
+                </span>
+            </div>
+    </div>
+
+    <div class="form-group ui-g-12">
+        <button type="submit" [disabled]="formulario.invalid" (click)="salvar()" class="btn btn-primary">SALVAR</button>
+        <button type="reset" class="btn btn-warning" (click)="clean()">LIMPAR</button>
+    </div>
+    
+  </div>
+
+</form>
+</div>
